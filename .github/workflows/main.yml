@@ -1,27 +1,3 @@
-
-Skip to content
-
-    VpourVerdad
-    /
-    conduit-realworld-example-app
-
-Code
-Pull requests
-Actions
-Projects
-Security
-
-    Insights
-
-Github Actions
-VpourVerdad is testing out GitHub Actions 🚀 #14
-
-Jobs
-
-Run details
-
-Workflow file for this run
-.github/workflows/github-actions.yml at e4dbc00
 name : Github Actions
 run-name: ${{github.actor}} is testing out GitHub Actions 🚀
 on:
