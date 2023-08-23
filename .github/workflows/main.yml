@@ -1,0 +1,146 @@
+
+Skip to content
+
+    VpourVerdad
+    /
+    conduit-realworld-example-app
+
+Code
+Pull requests
+Actions
+Projects
+Security
+
+    Insights
+
+Github Actions
+VpourVerdad is testing out GitHub Actions 🚀 #14
+
+Jobs
+
+Run details
+
+Workflow file for this run
+.github/workflows/github-actions.yml at e4dbc00
+name : Github Actions
+run-name: ${{github.actor}} is testing out GitHub Actions 🚀
+on:
+  push:
+    branches:
+      - main
+
+jobs :
+  backend-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.11.x
+          cache: npm
+
+      - name: Installation des dépendances
+        run: npm install
+
+      - name: Build
+        run: npm run build -w backend
+
+  backend-lint:
+    runs-on: ubuntu-latest
+    needs: backend-build
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.11.x
+          cache: npm
+
+      - name: Installation des dépendances
+        run: npm install
+
+      - name: Lint
+        run: npm run lint -w backend
+
+  backend-test:
+    runs-on: ubuntu-latest
+    needs: backend-lint
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.11.x
+          cache: npm
+
+      - name: Installation des dépendances
+        run: npm install
+
+      - name: Test backend
+        run: npm test -w backend
+
+  frontend-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.11.x
+          cache: npm
+
+      - name: Installation des dépendances
+        run: npm install
+
+      - name: Build
+        run: npm run build -w frontend
+
+  frontend-lint:
+    runs-on: ubuntu-latest
+    needs: frontend-build
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.11.x
+          cache: npm
+
+      - name: Installation des dépendances
+        run: npm install
+
+      - name: Lint
+        run: npm run lint -w frontend
+
+  frontend-test:
+    runs-on: ubuntu-latest
+    needs: frontend-lint
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.11.x
+          cache: npm
+
+      - name: Installation des dépendances
+        run: npm install
+
+      - name: Test frontend
+        run: npm test -w frontend
+workflow backend 4 · VpourVerdad/conduit-realworld-example-app@e4dbc00
